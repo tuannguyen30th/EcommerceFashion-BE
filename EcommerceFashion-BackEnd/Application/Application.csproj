@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Infrastructure\Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="AccountService\Queries\" />
+    <Folder Include="BrandService\Models\RequestModels\" />
+    <Folder Include="CartService\Queries\" />
+    <Folder Include="ProductCategoryService\Commands\" />
+    <Folder Include="ProductCategoryService\Models\RequestModels\" />
+    <Folder Include="ShopService\Commands\" />
+    <Folder Include="ShopService\Models\RequestModels\" />
+    <Folder Include="WishListService\Models\ResponseModels\" />
+  </ItemGroup>
+
+</Project>
