@@ -50,8 +50,8 @@ namespace Infrastructure.Repositories
         }
 
         public virtual async Task<PaginationResult<List<T>>> GetAllAsync(Expression<Func<T, bool>>? filter = null,
-         Func<IQueryable<T>, IOrderedQueryable<T>>? order = null, Func<IQueryable<T>, IQueryable<T>>? include = null,
-         int? pageIndex = null, int? pageSize = null)
+            Func<IQueryable<T>, IOrderedQueryable<T>>? order = null, Func<IQueryable<T>, IQueryable<T>>? include = null,
+            int? pageIndex = null, int? pageSize = null)
         {
             IQueryable<T> query = _dbSet;
 

@@ -35,7 +35,7 @@ namespace Application.ProductService.Queries
             var productLists = await _unitOfWork.ProductRepository.GetAllAsync(
                 pageIndex: requestModel.PageIndex,
                 pageSize: requestModel.PageSize,
-                filter: _ => (_.ShopId == request.shopId && _.IsDeleted == false)
+                filter: _ => (_.CreatedById == request.shopId && _.IsDeleted == false)
             );
 
             var productOfShops = new List<ProductModel>();

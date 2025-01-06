@@ -14,13 +14,14 @@ namespace Domain.Entities
     public class Image : BaseEntity
     {
         public Guid? ProductId { get; set; }
-        public Guid? FeedbackId { get; set; }
-        public required string ImagePath { get; set; }
-        public required string ImageAlt { get; set; }
-        public required int Dimension { get; set; }
+        [ForeignKey(nameof(ProductId))]
         public Product? Product { get; set; }
+
+        public Guid? FeedbackId { get; set; }
+        [ForeignKey(nameof(FeedbackId))]
         public Feedback? Feedback { get; set; }
+        public required string ImagePath { get; set; } 
+        public required string ImageAlt { get; set; }  
+        //public required int Dimension { get; set; }   
     }
-
-
 }

@@ -13,10 +13,11 @@ namespace Domain.Entities
     public class ProductCategoryData : BaseEntity
     {
         public required Guid ProductId { get; set; }
+        [ForeignKey(nameof(ProductId))]
         public Product Product { get; set; } = null!;
         public required Guid ProductCategoryId { get; set; }
+        [ForeignKey(nameof(ProductCategoryId))]
         public ProductCategory ProductCategory { get; set; } = null!;
-       /* public int IntOrder { get; set; }*/
-
     }
+
 }

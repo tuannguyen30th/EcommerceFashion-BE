@@ -13,9 +13,14 @@ namespace Domain.Entities
     public class BrandProductCategoryData : BaseEntity
     {
         public required Guid BrandId { get; set; }
+
+        [ForeignKey(nameof(BrandId))]
         public Brand Brand { get; set; } = null!;
         public required Guid ProductCategoryId { get; set; }
+
+        [ForeignKey(nameof(ProductCategoryId))]
         public ProductCategory ProductCategory { get; set; } = null!;
-        public int ProductCategoryOrder {  get; set; }
+        public int ProductCategoryOrder { get; set; }
     }
+
 }

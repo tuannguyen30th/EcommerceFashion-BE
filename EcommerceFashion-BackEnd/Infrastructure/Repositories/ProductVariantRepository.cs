@@ -14,5 +14,11 @@ namespace Infrastructure.Repositories
         public ProductVariantRepository(EcommerceFashionDbContext context, IClaimService claimService) : base(context, claimService)
         {
         }
+
+        public async Task<int> Stock(Guid id)
+        {
+            var stock = _dbSet.Where(_ => _.ProductId == id).Sum(_ => _.Stock);
+            return stock;
+        }
     }
 }

@@ -11,9 +11,12 @@ namespace Domain.Entities
     [Table("WishLists")]
     public class WishList : BaseEntity
     {
+        [ForeignKey(nameof(CreatedById))]
         public Account Account { get; set; } = null!;
         public required Guid ProductId { get; set; }
+        [ForeignKey(nameof(ProductId))]
         public Product Product { get; set; } = null!;
         public ICollection<WishListAttribute> WishListAttributes { get; set; } = new List<WishListAttribute>();
     }
+
 }

@@ -13,11 +13,15 @@ namespace Domain.Entities
     public class Order : BaseEntity
     {
         public required Guid DeliveryId { get; set; }
+        [ForeignKey(nameof(DeliveryId))]
         public Delivery Delivery { get; set; } = null!;
+
+        [ForeignKey(nameof(CreatedById))]
         public Account Account { get; set; } = null!;
-        public decimal Total {  get; set; }
-        public required int PaymentStatus { get; set; }
+        public decimal Total { get; set; } 
+        public required int PaymentStatus { get; set; } 
         public ICollection<OrderDetail> OrderDetails { get; set; } = new List<OrderDetail>();
         public ICollection<Payment> Payments { get; set; } = new List<Payment>();
     }
+
 }

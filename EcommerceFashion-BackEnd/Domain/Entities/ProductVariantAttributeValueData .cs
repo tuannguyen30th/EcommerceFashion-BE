@@ -10,16 +10,19 @@ using System.Threading.Tasks;
 namespace Domain.Entities
 {
     [Table("ProductVariantAttributeValueDatas")]
-    public class ProductVariantAttributeValueData  : BaseEntity
+    public class ProductVariantAttributeValueData : BaseEntity
     {
-        public Guid ProductVariantId { get; set; }
+        public required Guid ProductVariantId { get; set; }
+
+        [ForeignKey(nameof(ProductVariantId))]
         public ProductVariant ProductVariant { get; set; } = null!;
-        public Guid ProductAttributeValueId { get; set; }
+        public required Guid ProductAttributeValueId { get; set; }
+
+        [ForeignKey(nameof(ProductAttributeValueId))]
         public ProductAttributeValue ProductAttributeValue { get; set; } = null!;
         public ICollection<OrderDetailAttribute> OrderDetailAttributes { get; set; } = new List<OrderDetailAttribute>();
-        /*public ICollection<Cart> Carts { get; set; } = new List<Cart>();*/
         public ICollection<WishListAttribute> WishListAttributes { get; set; } = new List<WishListAttribute>();
         public ICollection<CartItem> CartItems { get; set; } = new List<CartItem>();
-
     }
+
 }

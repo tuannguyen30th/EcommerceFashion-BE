@@ -39,17 +39,15 @@ namespace Domain.Entities
         public string? ShopName { get; set; }
         public string? ShopDescription { get; set; }
         public bool? IsShop { get; set; } = false;
-
-        // Relationship
-      
         public Guid? CreaditId { get; set; }
+        [ForeignKey(nameof(CreaditId))]
         public Credit Credit { get; set; } = null!;
         public virtual ICollection<AccountRole> AccountRoles { get; set; } = new List<AccountRole>();
-
         public ICollection<Feedback> FeedBacksAsReviewer { get; set; } = new List<Feedback>();
         public ICollection<Feedback> FeedBacksAsShop { get; set; } = new List<Feedback>();
         public ICollection<Product>? Products { get; set; } = new List<Product>();
         public ICollection<WishList> WishLists { get; set; } = new List<WishList>();
         public ICollection<Cart> Carts { get; set; } = new List<Cart>();
+        public ICollection<Order> Orders { get; set; } = new List<Order>();
     }
 }

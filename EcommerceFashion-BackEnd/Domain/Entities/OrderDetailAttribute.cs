@@ -12,9 +12,11 @@ namespace Domain.Entities
     public class OrderDetailAttribute : BaseEntity
     {
         public required Guid OrderDetailId { get; set; }
+        [ForeignKey(nameof(OrderDetailId))]
         public OrderDetail OrderDetail { get; set; } = null!;
         public required Guid ProductVariantAttributeValueDataId { get; set; }
+        [ForeignKey(nameof(ProductVariantAttributeValueDataId))]
         public ProductVariantAttributeValueData ProductVariantAttributeValueData { get; set; } = null!;
-
     }
+
 }

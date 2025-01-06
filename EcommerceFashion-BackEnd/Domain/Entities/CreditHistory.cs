@@ -8,11 +8,14 @@ using System.Threading.Tasks;
 
 namespace Domain.Entities
 {
-    [Table("CreditHistorys")]
+    [Table("CreditHistories")]
     public class CreditHistory : BaseEntity
     {
         public required Guid CreditId { get; set; }
+
+        [ForeignKey(nameof(CreditId))]
         public Credit Credit { get; set; } = null!;
         public required decimal Amount { get; set; }
     }
+
 }

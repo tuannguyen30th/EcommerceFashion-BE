@@ -22,7 +22,25 @@ namespace Presentation.Controllers
             _mediator = mediator;
         }
 
-       
+        [HttpGet("details")]
+        public async Task<IActionResult> ProductGetDetailQuery(Guid id)
+        {
+            try
+            {
+                var query = new ProductGetDetailQuery(id);
+                var result = await _mediator.Send(query);
+                if (result.Status)
+                {
+                    return Ok(result);
+                }
+
+                return BadRequest(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
+            }
+        }
         [HttpGet("new-products")]
         public async Task<IActionResult> ProductGetNewQuery()
         {

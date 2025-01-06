@@ -152,7 +152,6 @@ namespace Presentation
             // Role
             services.AddScoped<IRoleRepository, RoleRepository>();
 
-            // Brand
             services.AddScoped<IBrandRepository, BrandRepository>();
             services.AddScoped<IBrandProductCategoryDataRepository, BrandProductCategoryDataRepository>();
             services.AddScoped<ICartItemRepository, CartItemRepository>();
@@ -205,6 +204,7 @@ namespace Presentation
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(ProductGetByShopQueryHandler).GetTypeInfo().Assembly));
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(ProductGetNewQueryHandler).GetTypeInfo().Assembly));
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(ProductGetSaleQueryHandler).GetTypeInfo().Assembly));
+            services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(ProductGetDetailQueryHandler).GetTypeInfo().Assembly));
 
             // Shop
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(ShopGetDetailQueryHandler).GetTypeInfo().Assembly));
@@ -213,6 +213,8 @@ namespace Presentation
             // WishList
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(WishListAddOrDeleteCommandHandler).GetTypeInfo().Assembly));
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(WishListGetByAccountQueryHandler).GetTypeInfo().Assembly));
+
+            // 
 
             #endregion
             return services;

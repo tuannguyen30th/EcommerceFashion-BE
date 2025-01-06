@@ -11,10 +11,12 @@ namespace Domain.Entities
     [Table("ProductVariants")]
     public class ProductVariant : BaseEntity
     {
-        public Guid ProductId { get; set; }
-        public Product Product { get; set; } = null!;
-        public required int Stock {  get; set; }
-        public ICollection<ProductVariantAttributeValueData> ProductVariantAttributeValueDatas { get; set; } = new List<ProductVariantAttributeValueData>();
+        public required Guid ProductId { get; set; }
 
+        [ForeignKey(nameof(ProductId))]
+        public Product Product { get; set; } = null!;
+        public required int Stock { get; set; }
+        public ICollection<ProductVariantAttributeValueData> ProductVariantAttributeValueDatas { get; set; } = new List<ProductVariantAttributeValueData>();
     }
+
 }

@@ -13,12 +13,14 @@ namespace Domain.Entities
     public class OrderDetail : BaseEntity
     {
         public required Guid OrderId { get; set; }
+        [ForeignKey(nameof(OrderId))]
         public Order Order { get; set; } = null!;
         public required Guid ProductId { get; set; }
+        [ForeignKey(nameof(ProductId))]
         public Product Product { get; set; } = null!;
-        public decimal Price { get; set; }
-        public int Count { get; set; }
+        public decimal Price { get; set; } 
+        public int Count { get; set; } 
         public ICollection<OrderDetailAttribute> OrderDetailAttributes { get; set; } = new List<OrderDetailAttribute>();
-
     }
+
 }

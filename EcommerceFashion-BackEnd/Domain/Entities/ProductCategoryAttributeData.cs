@@ -12,11 +12,14 @@ namespace Domain.Entities
     [Table("ProductCategoryAttributeDatas")]
     public class ProductCategoryAttributeData : BaseEntity
     {
-
         public required Guid ProductCategoryId { get; set; }
+
+        [ForeignKey(nameof(ProductCategoryId))]
         public ProductCategory ProductCategory { get; set; } = null!;
         public required Guid AttributeId { get; set; }
+        [ForeignKey(nameof(AttributeId))]
         public ProductAttribute Attribute { get; set; } = null!;
-        public int AttributeOrder { get; set; }
+        public int? AttributeOrder { get; set; }
     }
+
 }

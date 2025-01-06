@@ -9,6 +9,7 @@ namespace Domain.Common
 {
     public class BaseEntity
     {
+        [Key]
         public Guid Id { get; set; }
         public DateTime CreationDate { get; set; } = DateTime.UtcNow;
         public Guid? CreatedById { get; set; }

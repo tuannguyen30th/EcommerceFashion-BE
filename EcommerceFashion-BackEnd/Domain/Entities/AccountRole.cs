@@ -11,12 +11,12 @@ namespace Domain.Entities
     [Table("AccountRoles")]
     public class AccountRole : BaseEntity
     {
-        // Foreign key
         public Guid AccountId { get; set; }
         public Guid RoleId { get; set; }
-
-        // Relationship
+        [ForeignKey(nameof(AccountId))]
         public Account Account { get; set; } = null!;
+        [ForeignKey(nameof(RoleId))]
+
         public Role Role { get; set; } = null!;
 
     }

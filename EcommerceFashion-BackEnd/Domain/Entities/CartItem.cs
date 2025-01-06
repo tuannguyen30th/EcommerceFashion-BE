@@ -13,9 +13,13 @@ namespace Domain.Entities
     public class CartItem : BaseEntity
     {
         public Guid CartId { get; set; }
+
+        [ForeignKey(nameof(CartId))]
         public Cart Cart { get; set; } = null!;
         public required Guid ProductVariantAttributeValueDataId { get; set; }
-        public ProductVariantAttributeValueData ProductVariantAttributeValueData { get; set; } = null!;
 
+        [ForeignKey(nameof(ProductVariantAttributeValueDataId))]
+        public ProductVariantAttributeValueData ProductVariantAttributeValueData { get; set; } = null!;
     }
+
 }

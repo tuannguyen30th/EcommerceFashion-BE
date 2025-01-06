@@ -9,5 +9,6 @@ namespace Infrastructure.IRepositories
 {
     public interface IProductVariantRepository : IGenericRepository<ProductVariant>
     {
+        Task<int> Stock(Guid id);
     }
 }

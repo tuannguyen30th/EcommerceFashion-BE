@@ -1,4 +1,5 @@
 ﻿using Domain.Common;
+using Microsoft.Identity.Client;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -13,6 +14,7 @@ namespace Domain.Entities
     public class AttributeSelection : BaseEntity
     {
         public required Guid AttributeId { get; set; }
+        [ForeignKey(nameof(AttributeId))]
         public ProductAttribute Attribute { get; set; } = null!;
         public required string SelectionValue { get; set; }
         public int Order {  get; set; }

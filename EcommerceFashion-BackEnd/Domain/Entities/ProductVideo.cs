@@ -13,7 +13,9 @@ namespace Domain.Entities
     public class ProductVideo : BaseEntity
     {
         public required Guid ProductId { get; set; }
+        [ForeignKey(nameof(ProductId))]
         public Product Product { get; set; } = null!;
         public required string VideoPath { get; set; }
     }
+
 }

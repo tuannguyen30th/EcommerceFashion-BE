@@ -12,11 +12,15 @@ namespace Domain.Entities
     [Table("Carts")]
     public class Cart : BaseEntity
     {
-        public Account Account { get; set; } = null!;
         public required Guid ProductId { get; set; }
+
+        [ForeignKey(nameof(ProductId))]
         public Product Product { get; set; } = null!;
         public int Quantity { get; set; }
         public ICollection<CartItem> CartItems { get; set; } = new List<CartItem>();
 
+        [ForeignKey(nameof(CreatedById))]
+        public Account Account { get; set; } = null!;
     }
+
 }

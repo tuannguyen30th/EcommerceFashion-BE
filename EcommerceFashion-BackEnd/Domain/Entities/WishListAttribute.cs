@@ -12,8 +12,12 @@ namespace Domain.Entities
     public class WishListAttribute : BaseEntity
     {
         public Guid WishListId { get; set; }
+        [ForeignKey(nameof(WishListId))]
         public WishList WishList { get; set; } = null!;
-        public required Guid ProductVariantAttributeValueDataId { get; set; }
+        public Guid ProductVariantAttributeValueDataId { get; set; }
+
+        [ForeignKey(nameof(ProductVariantAttributeValueDataId))]
         public ProductVariantAttributeValueData ProductVariantAttributeValueData { get; set; } = null!;
     }
+
 }
